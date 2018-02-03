@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li{list-style:none;}
+        .bg{background:red}
+        .green{
+            background:green
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <div id="box">
+            <div id="inpl">账号：<input type="text" v-model="inps" id="zhang"></div>
+            <div id="inpz">密码：<input type="password" v-model="pas" id="pass"></div>
+            <button id="btn" @click='fun'>登录</button>
+        </div>
+    </div>
+</body>
+<script src="vue.min.js"></script>
+<script>
+    const obj = {
+        zhang:'12345',
+        pass:'glh1234'
+    };
+    let zhang = document.getElementById('zhang');
+    let pass =document.getElementById('pass');
+    let btn = document.getElementById('btn');
+    new Vue({
+    el:'#app',
+    data: {
+        message:'请按照规定输入此参数',
+        inps:null,
+        pas:null,
+        fun:function(){
+            let zhang = document.getElementById('zhang').value;
+            let pass =document.getElementById('pass').value;
+            if(zhang!= null && zhang==obj.zhang && pass==obj.pass){
+                location.href = 'banner.html'
+            }else{
+                alert('您输入的账号或密码有误')
+            }
+            
+        }
+    }
+});
+</script>
+</html>
